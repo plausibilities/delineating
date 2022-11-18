@@ -26,7 +26,7 @@
   * [The PYMC Samplers](https://docs.pymc.io/en/latest/api/samplers.html)
 * [ARVIZ API](https://arviz-devs.github.io/arviz/api/)
   * [arviz.plot_ppc](https://arviz-devs.github.io/arviz/api/generated/arviz.plot_ppc.html)
-* [arviz.InferenceData methods](https://arviz-devs.github.io/arviz/api/generated/arviz.InferenceData.html)
+  * [arviz.InferenceData methods](https://arviz-devs.github.io/arviz/api/generated/arviz.InferenceData.html)
 
 
 <br>
