@@ -42,6 +42,12 @@ class Radioactivity:
 
     @staticmethod
     def __merge(data: pd.DataFrame) -> pd.DataFrame:
+        """
+        Merge dwelling & county level [uranium] data.
+        
+        :param data:
+        :return:
+        """
 
         counties = src.data.counties.Counties().exc()
         data = data.merge(counties[['fips', 'Uppm']], how='left', on='fips')
