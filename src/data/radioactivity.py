@@ -23,7 +23,7 @@ class Radioactivity:
         return data
 
     @staticmethod
-    def __expand(data: pd.DataFrame) -> pd.DataFrame:
+    def __structuring(data: pd.DataFrame) -> pd.DataFrame:
         """
         Structuring; concatenating the `pure state` & `pure county` codes
             1. FIPS States: https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code
@@ -33,7 +33,11 @@ class Radioactivity:
         :return:
         """
 
+        # the state + county FIPS codes
         data.loc[:, 'fips'] = data.stfips.astype(str).str.zfill(2) + data.cntyfips.astype(str).str.zfill(3)
+
+        # deduplicate
+        data.drop_duplicates(inplace=True)
 
         return data
 
