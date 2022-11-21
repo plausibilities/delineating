@@ -44,16 +44,25 @@ class Radioactivity:
         return data
 
     @staticmethod
-    def __merge(data) -> pd.DataFrame:
+    def __merge(data: pd.DataFrame) -> pd.DataFrame:
 
         counties = src.data.counties.Counties().exc()
-        data = data.copy().merge(counties[['fips', 'Uppm']], how='left', on='fips')
+        data = data.merge(counties[['fips', 'Uppm']], how='left', on='fips')
 
         return data
 
-    def exc(self, focus: str = None):
+    def exc(self, state: str = None):
         """
 
-        :param focus:
+        :param state:
         :return:
         """
+
+        data = self.__read()
+        data = self.__structure(data=data.copy())
+        data = self.__merge(data=data.copy())
+
+        if state is None:
+            return data
+        else:
+            return data.loc[data['state'] == state, :]
