@@ -1,6 +1,8 @@
 import pandas as pd
 import pymc as pm
 
+import src.data.counties
+
 
 class Radioactivity:
 
@@ -23,7 +25,7 @@ class Radioactivity:
         return data
 
     @staticmethod
-    def __structuring(data: pd.DataFrame) -> pd.DataFrame:
+    def __structure(data: pd.DataFrame) -> pd.DataFrame:
         """
         Structuring; concatenating the `pure state` & `pure county` codes
             1. FIPS States: https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code
@@ -38,6 +40,14 @@ class Radioactivity:
 
         # deduplicate
         data.drop_duplicates(inplace=True)
+
+        return data
+
+    @staticmethod
+    def __merge(data) -> pd.DataFrame:
+
+        counties = src.data.counties.Counties().exc()
+        data = data.copy().merge(counties[['fips', 'Uppm']], how='left', on='fips')
 
         return data
 
