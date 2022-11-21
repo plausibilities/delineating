@@ -37,6 +37,7 @@ class Radioactivity:
 
         # the state + county FIPS codes
         data.loc[:, 'fips'] = data.stfips.astype(str).str.zfill(2) + data.cntyfips.astype(str).str.zfill(3)
+        data.loc[:, 'county'] = data['county'].str.strip().str.upper()
 
         return data
 
@@ -44,7 +45,7 @@ class Radioactivity:
     def __merge(data: pd.DataFrame) -> pd.DataFrame:
         """
         Merge dwelling & county level [uranium] data.
-        
+
         :param data:
         :return:
         """
