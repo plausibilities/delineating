@@ -22,7 +22,7 @@ class Counties:
 
         return counties
 
-    def exc(self):
+    def exc(self) -> pd.DataFrame:
         """
 
         :return:
