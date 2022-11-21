@@ -37,6 +37,8 @@ class Radioactivity:
 
         # the state + county FIPS codes
         data.loc[:, 'fips'] = data.stfips.astype(str).str.zfill(2) + data.cntyfips.astype(str).str.zfill(3)
+
+        # ascertain county data consistency
         data.loc[:, 'county'] = data['county'].str.strip().str.upper()
 
         return data
