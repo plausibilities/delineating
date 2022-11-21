@@ -38,9 +38,6 @@ class Radioactivity:
         # the state + county FIPS codes
         data.loc[:, 'fips'] = data.stfips.astype(str).str.zfill(2) + data.cntyfips.astype(str).str.zfill(3)
 
-        # deduplicate
-        data.drop_duplicates(inplace=True)
-
         return data
 
     @staticmethod
@@ -58,11 +55,16 @@ class Radioactivity:
         :return:
         """
 
+        # the data
         data = self.__read()
         data = self.__structure(data=data.copy())
         data = self.__merge(data=data.copy())
 
-        if state is None:
-            return data
-        else:
-            return data.loc[data['state'] == state, :]
+        # focusing on a single state?
+        if state is not None:
+            data = data.copy().loc[data['state'] == state, :]
+
+        # deduplicate
+        data.drop_duplicates(inplace=True)
+
+        return data
