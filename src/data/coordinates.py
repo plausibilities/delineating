@@ -25,7 +25,7 @@ class Coordinates:
 
         return dict(zip(counties, indices))
 
-    def exc(self):
+    def exc(self) -> dict:
 
         coordinates = {'Level': self.__levels, 'County': self.__counties()}
 
