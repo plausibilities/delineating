@@ -27,6 +27,6 @@ class Coordinates:
 
     def exc(self) -> dict:
 
-        coordinates = {'Level': self.__levels, 'County': self.__counties()}
+        coordinates = {'Level': self.__levels(), 'County': self.__counties()}
 
         return coordinates
