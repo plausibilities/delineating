@@ -4,7 +4,7 @@ import numpy as np
 import src.data.coordinates
 
 
-class Vectors:
+class Features:
 
     def __init__(self):
         """
