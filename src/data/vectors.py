@@ -11,7 +11,8 @@ class Vectors:
 
         """
 
-    def exc(self, data: pd.DataFrame) -> pd.DataFrame:
+    @staticmethod
+    def exc(data: pd.DataFrame) -> pd.DataFrame:
         """
 
         :return:
