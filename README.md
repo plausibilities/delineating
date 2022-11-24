@@ -18,6 +18,23 @@
 <br>
 <br>
 
+### Snippets
+
+```python
+levels = ['Basement', 'Ground']
+x = {'Level': dict(zip(levels, range(len(levels))))}
+len(x.get('Level'))
+```
+
+```python 
+logger.info(aesara.tensor.shape(...).eval())
+```
+
+
+
+<br>
+<br>
+
 ### References
 
 * [A Primer on Bayesian Methods for Multilevel Modeling](https://www.pymc.io/projects/examples/en/latest/case_studies/multilevel_modeling.html)
