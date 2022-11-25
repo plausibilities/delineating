@@ -64,7 +64,10 @@ class Complete:
         :return:
         """
 
+        # A Bayesian model: complete pooling
         model = self.__model(data=data)
+
+        # Is this the correct seeding method/approach?
         model.initial_point(seed=self.__seed)
 
         return model
