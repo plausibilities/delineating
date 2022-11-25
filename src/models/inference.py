@@ -62,3 +62,13 @@ class Inference:
 
         :return:
         """
+
+        trace = self.__sample()
+
+        # prior
+        inferences = self.__sample_prior_predictive()
+        trace.extend(inferences)
+
+        # posterior
+        inferences = self.__sample_posterior_predictive(trace=trace)
+        trace.extend(inferences)
