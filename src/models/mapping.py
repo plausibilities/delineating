@@ -8,6 +8,10 @@ import xarray as xr
 class Mapping:
     """
     Class: Mapping
+
+    Notes:
+        https://docs.xarray.dev/en/stable/api.html
+        https://docs.xarray.dev/en/stable/generated/xarray.Dataset.assign_coords.html#xarray.Dataset.assign_coords
     """
 
     def __init__(self, inferences: az.InferenceData, coords: dict):
