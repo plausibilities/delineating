@@ -57,7 +57,7 @@ class Inference:
 
         return trace
 
-    def exc(self):
+    def exc(self) -> az.InferenceData:
         """
 
         :return:
@@ -72,3 +72,5 @@ class Inference:
         # posterior
         inferences = self.__sample_posterior_predictive(trace=trace)
         trace.extend(inferences)
+
+        return trace
