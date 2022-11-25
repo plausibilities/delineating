@@ -28,7 +28,7 @@ class Complete:
 
     def __model(self, data: pd.DataFrame):
         """
-        
+
         :param data:
         :return:
         """
@@ -64,5 +64,6 @@ class Complete:
         """
 
         model = self.__model(data=data)
-
         model.initial_point(seed=self.__seed)
+
+        return model
