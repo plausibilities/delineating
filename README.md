@@ -44,7 +44,9 @@ logger.info(aesara.tensor.shape(...).eval())
 * [ARVIZ API](https://arviz-devs.github.io/arviz/api/)
   * [arviz.plot_ppc](https://arviz-devs.github.io/arviz/api/generated/arviz.plot_ppc.html)
   * [arviz.InferenceData methods](https://arviz-devs.github.io/arviz/api/generated/arviz.InferenceData.html)
-
+* Graphing
+  * [seaborn.boxplot](https://seaborn.pydata.org/generated/seaborn.boxplot.html)
+  * [maxplotlib.axes.Axes.boxplot](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.boxplot.html#matplotlib.axes.Axes.boxplot)
 
 <br>
 <br>
