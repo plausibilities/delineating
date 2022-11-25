@@ -45,6 +45,7 @@ class Complete:
             apriori = pm.Normal(name='apriori', mu=0.0, sigma=10.0, dims='Level')
 
             # shape(mu) === shape(levelcode): <levelcode> is a N x 1 boolean object
+            # apriori.eval()[levelcode.eval()]
             mu = apriori[levelcode]
 
             # sigma ~ pm.Exponential(name=, lam=)
