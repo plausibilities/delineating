@@ -22,7 +22,7 @@ class Complete:
                             datefmt='%Y-%m-%d %H:%M:%S')
         self.__logger = logging.getLogger(__name__)
 
-    def __model(self, data: pd.DataFrame):
+    def __model(self, data: pd.DataFrame) -> pm.Model:
         """
 
         :param data:
@@ -53,7 +53,7 @@ class Complete:
 
             return model
 
-    def exc(self, data: pd.DataFrame):
+    def exc(self, data: pd.DataFrame) -> pm.Model:
         """
 
         :param data:
