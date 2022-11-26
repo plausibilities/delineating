@@ -1,5 +1,4 @@
 import logging
-import collections
 
 import pandas as pd
 import pymc as pm
@@ -22,9 +21,6 @@ class Complete:
                             format='\n%(message)s\n%(asctime)s.%(msecs)03d\n',
                             datefmt='%Y-%m-%d %H:%M:%S')
         self.__logger = logging.getLogger(__name__)
-
-        # Results collection object
-        collections.namedtuple(typename='Model', field_names=[])
 
     def __model(self, data: pd.DataFrame):
         """
