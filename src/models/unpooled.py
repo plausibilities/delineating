@@ -22,7 +22,7 @@ class Unpooled:
                             datefmt='%Y-%m-%d %H:%M:%S')
         self.__logger = logging.getLogger(__name__)
 
-    def __model(self, data: pd.DataFrame):
+    def __model(self, data: pd.DataFrame) -> pm.Model:
 
         with pm.Model(coords=self.__coords) as model:
 
@@ -49,3 +49,18 @@ class Unpooled:
             self.__logger.info(y)
 
             return model
+
+    def exc(self, data: pd.DataFrame) -> pm.Model:
+        """
+
+        :param data:
+        :return:
+        """
+
+        # A Bayesian model: complete pooling
+        model = self.__model(data=data)
+
+        # Is this the correct seeding method/approach?
+        model.initial_point(seed=self.__seed)
+
+        return model
