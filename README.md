@@ -47,6 +47,9 @@ logger.info(aesara.tensor.shape(...).eval())
 * Graphing
   * [seaborn.boxplot](https://seaborn.pydata.org/generated/seaborn.boxplot.html)
   * [maxplotlib.axes.Axes.boxplot](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.boxplot.html#matplotlib.axes.Axes.boxplot)
+* [pandas](https://pandas.pydata.org/docs/reference/index.html)
+* [numpy](https://numpy.org/doc/stable/reference/index.html)
+* [xarray](https://docs.xarray.dev/en/stable/api.html)
 
 <br>
 <br>
