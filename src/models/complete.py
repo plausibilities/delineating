@@ -31,13 +31,15 @@ class Complete:
 
         with pm.Model(coords=self.__coords) as model:
 
-            # the values of the <floor> field
-            # self.__logger.info(levelcode.get_value().shape), self.__logger.info(levelcode.type())
+            # The values of the <floor> field
+            #   self.__logger.info(levelcode.get_value().shape), self.__logger.info(levelcode.type())
             levelcode = pm.Data(name='levelcode', value=data['floor'].values, dims='N', mutable=True)
-            
-            # the <measures> object has two elements because the object <Level> has two elements, therefore two random
+
+            # The <measures> object has two elements because the object <Level> has two elements, therefore two random
             # values are taken from a normal distribution
+            #   measures: aesara.tensor.var.TensorVariable
             measures = pm.Normal(name='measures', mu=0.0, sigma=10.0, dims='Level')
+            self.__logger.info(f'The # of level group elements: {measures.eval().shape}')
 
             # shape(mu) === shape(levelcode): <levelcode> is a N x 1 boolean object
             # measures.eval()[levelcode.eval()]
