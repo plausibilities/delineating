@@ -32,10 +32,9 @@ class Complete:
         with pm.Model(coords=self.__coords) as model:
 
             # the values of the <floor> field
+            # self.__logger.info(levelcode.get_value().shape), self.__logger.info(levelcode.type())
             levelcode = pm.Data(name='levelcode', value=data['floor'].values, dims='N', mutable=True)
-            self.__logger.info(levelcode.get_value().shape)
-            self.__logger.info(levelcode.type())
-
+            
             # the <measures> object has two elements because the object <Level> has two elements, therefore two random
             # values are taken from a normal distribution
             measures = pm.Normal(name='measures', mu=0.0, sigma=10.0, dims='Level')
