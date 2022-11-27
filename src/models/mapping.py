@@ -49,9 +49,10 @@ class Mapping:
         observed_data = observed_data.assign_coords(LevelCode=self.__inferences['constant_data']['levelcode'])
 
         # The county indices & labels
-        labels = self.__inferences['posterior']['County'][self.__inferences['constant_data']['countyindex']]
-        observed_data = observed_data.assign_coords(County=labels)
-        observed_data = observed_data.assign_coords(CountyIndex=self.__inferences['constant_data']['countyindex'])
+        if 'County' in list(self.__inferences['posterior'].coords.keys()):
+            labels = self.__inferences['posterior']['County'][self.__inferences['constant_data']['countyindex']]
+            observed_data = observed_data.assign_coords(County=labels)
+            observed_data = observed_data.assign_coords(CountyIndex=self.__inferences['constant_data']['countyindex'])
 
         # Sort, arrange, by level
         observed_data = observed_data.sortby('LevelCode')
