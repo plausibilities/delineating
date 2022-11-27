@@ -31,6 +31,7 @@ class Mapping:
         """
 
         posterior = self.__inferences['posterior'].assign_coords(LevelCode=list(self.__coords['Level'].values()))
+        posterior = posterior.assign_coords(CountyIndex=list(self.__coords['County'].values()))
 
         return posterior
 
@@ -40,10 +41,19 @@ class Mapping:
         :return:
         """
 
-        labels = self.__inferences['posterior']['Level'][self.__inferences['constant_data']['levelcode']]
+        observed_data = self.__inferences['observed_data']
 
-        observed_data = self.__inferences['observed_data'].assign_coords(Level=labels)
+        # The dwelling levels & labels
+        labels = self.__inferences['posterior']['Level'][self.__inferences['constant_data']['levelcode']]
+        observed_data = observed_data.assign_coords(Level=labels)
         observed_data = observed_data.assign_coords(LevelCode=self.__inferences['constant_data']['levelcode'])
+
+        # The county indices & labels
+        labels = self.__inferences['posterior']['County'][self.__inferences['constant_data']['countyindex']]
+        observed_data = observed_data.assign_coords(County=labels)
+        observed_data = observed_data.assign_coords(CountyIndex=self.__inferences['constant_data']['countyindex'])
+
+        # Sort, arrange, by level
         observed_data = observed_data.sortby('LevelCode')
 
         return observed_data
