@@ -36,13 +36,13 @@ class Complete:
             self.__logger.info(levelcode.get_value().shape)
             self.__logger.info(levelcode.type())
 
-            # <apriori> probably two elements because the object <Level> has two elements, therefore two random
+            # <measures> probably two elements because the object <Level> has two elements, therefore two random
             # values from a normal distribution
-            apriori = pm.Normal(name='apriori', mu=0.0, sigma=10.0, dims='Level')
+            measures = pm.Normal(name='measures', mu=0.0, sigma=10.0, dims='Level')
 
             # shape(mu) === shape(levelcode): <levelcode> is a N x 1 boolean object
-            # apriori.eval()[levelcode.eval()]
-            mu = apriori[levelcode]
+            # measures.eval()[levelcode.eval()]
+            mu = measures[levelcode]
 
             # sigma ~ pm.Exponential(name=, lam=)
             sigma = pm.Exponential('sigma', 1.0)
