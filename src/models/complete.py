@@ -42,8 +42,9 @@ class Complete:
             self.__logger.info(f'The # of level group elements: {measures.eval().shape}')
 
             # shape(mu) === shape(levelcode): <levelcode> is a N x 1 boolean object
-            # measures.eval()[levelcode.eval()]
+            #   measures.eval()[levelcode.eval()]
             mu = measures[levelcode]
+            self.__logger.info('The shape of mu, whereby mu = measures[levelcode]: %s', mu.eval().shape)
 
             # sigma ~ pm.Exponential(name=, lam=)
             sigma = pm.Exponential('sigma', 1.0)
