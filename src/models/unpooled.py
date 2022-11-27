@@ -36,14 +36,14 @@ class Unpooled:
             self.__logger.info(countyindex.get_value().shape)
             self.__logger.info(countyindex.type())
 
-            # <apriori> is probably has 85 x 2 elements because there are 85 distinct counties w.r.t. MN, and 2 distinct
+            # <measures> is probably has 85 x 2 elements because there are 85 distinct counties w.r.t. MN, and 2 distinct
             # dwelling/floor levels.  Hence, 85 x 2 random values from a normal distribution
-            apriori = pm.Normal(name='apriori', mu=0.0, sigma=10.0, dims=('County', 'Level'))
-            self.__logger.info(type(apriori))
-            self.__logger.info(f'The county & level groups: {apriori.eval().shape}')
+            measures = pm.Normal(name='measures', mu=0.0, sigma=10.0, dims=('County', 'Level'))
+            self.__logger.info(type(measures))
+            self.__logger.info(f'The county & level groups: {measures.eval().shape}')
 
             # shape(mu) === shape(levelcode): <levelcode> is a N x 1 boolean object
-            mu = apriori[countyindex, levelcode]
+            mu = measures[countyindex, levelcode]
             self.__logger.info('The shape of mu: %s', mu.eval().shape)
 
             # sigma ~ pm.Exponential(name=, lam=)
