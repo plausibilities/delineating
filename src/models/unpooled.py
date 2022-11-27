@@ -1,3 +1,6 @@
+"""
+Module unpooled
+"""
 import logging
 
 import pandas as pd
@@ -5,6 +8,9 @@ import pymc as pm
 
 
 class Unpooled:
+    """
+    Class: Unpooled
+    """
 
     def __init__(self, coords: dict, seed: int):
         """
@@ -23,6 +29,11 @@ class Unpooled:
         self.__logger = logging.getLogger(__name__)
 
     def __model(self, data: pd.DataFrame) -> pm.Model:
+        """
+
+        :param data:
+        :return:
+        """
 
         with pm.Model(coords=self.__coords) as model:
 
