@@ -36,8 +36,8 @@ class Complete:
             self.__logger.info(levelcode.get_value().shape)
             self.__logger.info(levelcode.type())
 
-            # <measures> probably two elements because the object <Level> has two elements, therefore two random
-            # values from a normal distribution
+            # the <measures> object has two elements because the object <Level> has two elements, therefore two random
+            # values are taken from a normal distribution
             measures = pm.Normal(name='measures', mu=0.0, sigma=10.0, dims='Level')
 
             # shape(mu) === shape(levelcode): <levelcode> is a N x 1 boolean object
