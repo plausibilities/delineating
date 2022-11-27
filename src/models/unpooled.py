@@ -38,19 +38,17 @@ class Unpooled:
         with pm.Model(coords=self.__coords) as model:
 
             # the values of the <floor> field
+            # self.__logger.info(levelcode.get_value().shape)
             levelcode = pm.Data(name='levelcode', value=data['floor'].values, dims='N', mutable=True)
-            self.__logger.info(levelcode.get_value().shape)
-            self.__logger.info(levelcode.type())
 
             # the values of the <countyindex> field
+            # self.__logger.info(countyindex.get_value().shape), self.__logger.info(countyindex.type())
             countyindex = pm.Data(name='countyindex', value=data['countyindex'].values, dims='N', mutable=True)
-            self.__logger.info(countyindex.get_value().shape)
-            self.__logger.info(countyindex.type())
 
-            # <measures> is probably has 85 x 2 elements because there are 85 distinct counties w.r.t. MN, and 2 distinct
-            # dwelling/floor levels.  Hence, 85 x 2 random values from a normal distribution
+            # the <measures> object has 85 x 2 elements because there are 85 distinct counties w.r.t. MN, and 2 distinct
+            # dwelling/floor levels.  Hence, 85 x 2 random values are taken from a normal distribution
+            # measures: aesara.tensor.var.TensorVariable
             measures = pm.Normal(name='measures', mu=0.0, sigma=10.0, dims=('County', 'Level'))
-            self.__logger.info(type(measures))
             self.__logger.info(f'The county & level groups: {measures.eval().shape}')
 
             # shape(mu) === shape(levelcode): <levelcode> is a N x 1 boolean object
@@ -67,7 +65,7 @@ class Unpooled:
     def exc(self, data: pd.DataFrame) -> pm.Model:
         """
 
-        :param data:
+        :param data: the data set being modelled
         :return:
         """
 
