@@ -53,7 +53,7 @@ class Unpooled:
 
             # shape(mu) === shape(levelcode): <levelcode> is a N x 1 boolean object
             mu = measures[countyindex, levelcode]
-            self.__logger.info('The shape of mu: %s', mu.eval().shape)
+            self.__logger.info('The shape of mu, whereby mu = measures[countyindex, levelcode]: %s', mu.eval().shape)
 
             # sigma ~ pm.Exponential(name=, lam=)
             sigma = pm.Exponential('sigma', 1.0)
