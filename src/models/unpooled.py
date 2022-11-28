@@ -71,7 +71,7 @@ class Unpooled:
         :return:
         """
 
-        # A Bayesian model: complete pooling
+        # A Bayesian model: unpooled
         model = self.__model(data=data)
 
         # Is this the correct seeding method/approach?
