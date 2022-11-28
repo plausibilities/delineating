@@ -30,19 +30,8 @@ class Mapping:
         :return:
         """
 
-        posterior = self.__inferences['posterior']
-
-        if 'Level' not in list(self.__inferences['posterior'].coords.keys()):
-            posterior = posterior.assign_coords(Level=list(self.__coords['Level'].keys()))
-
-        if 'LevelCode' not in list(self.__inferences['posterior'].coords.keys()):
-            posterior = posterior.assign_coords(LevelCode=list(self.__coords['Level'].values()))
-
-        if 'County' not in list(self.__inferences['posterior'].coords.keys()):
-            posterior = posterior.assign_coords(County=list(self.__coords['County'].keys()))
-
-        if 'CountyIndex' not in list(self.__inferences['posterior'].coords.keys()):
-            posterior = posterior.assign_coords(CountyIndex=list(self.__coords['County'].values()))
+        posterior = self.__inferences['posterior'].assign_coords(LevelCode=list(self.__coords['Level'].values()))
+        posterior = posterior.assign_coords(CountyIndex=list(self.__coords['County'].values()))
 
         return posterior
 
@@ -55,19 +44,18 @@ class Mapping:
         observed_data = self.__inferences['observed_data']
 
         # The dwelling levels & labels
-        if 'levelcode' in list(self.__inferences['constant_data'].coords.keys()):
-            labels = self.__inferences['posterior']['Level'][self.__inferences['constant_data']['levelcode']]
-            observed_data = observed_data.assign_coords(Level=labels)
-            observed_data = observed_data.assign_coords(LevelCode=self.__inferences['constant_data']['levelcode'])
-
-            # Sort, arrange, by level
-            observed_data = observed_data.sortby('LevelCode')
+        labels = self.__inferences['posterior']['Level'][self.__inferences['constant_data']['levelcode']]
+        observed_data = observed_data.assign_coords(Level=labels)
+        observed_data = observed_data.assign_coords(LevelCode=self.__inferences['constant_data']['levelcode'])
 
         # The county indices & labels
         if 'countyindex' in list(self.__inferences['constant_data'].coords.keys()):
             labels = self.__inferences['posterior']['County'][self.__inferences['constant_data']['countyindex']]
             observed_data = observed_data.assign_coords(County=labels)
             observed_data = observed_data.assign_coords(CountyIndex=self.__inferences['constant_data']['countyindex'])
+
+        # Sort, arrange, by level
+        observed_data = observed_data.sortby('LevelCode')
 
         return observed_data
 
