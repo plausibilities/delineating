@@ -37,6 +37,7 @@ logger.info(aesara.tensor.shape(...).eval())
 
 ### References
 
+* [Engineering Statistics Handbook](https://www.itl.nist.gov/div898/handbook/)
 * [A Primer on Bayesian Methods for Multilevel Modeling](https://www.pymc.io/projects/examples/en/latest/case_studies/multilevel_modeling.html)
 * [Multilevel Modeling Primer in TensorFlow Probability](https://www.tensorflow.org/probability/examples/Multilevel_Modeling_Primer)  
 * [PYMC API](https://www.pymc.io/projects/docs/en/stable/api/model.html)  
