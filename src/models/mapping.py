@@ -44,9 +44,10 @@ class Mapping:
         observed_data = self.__inferences['observed_data']
 
         # The dwelling levels & labels
-        labels = self.__inferences['posterior']['Level'][self.__inferences['constant_data']['levelcode']]
-        observed_data = observed_data.assign_coords(Level=labels)
-        observed_data = observed_data.assign_coords(LevelCode=self.__inferences['constant_data']['levelcode'])
+        if 'Level' in list(self.__inferences['posterior'].coords.keys()):
+            labels = self.__inferences['posterior']['Level'][self.__inferences['constant_data']['levelcode']]
+            observed_data = observed_data.assign_coords(Level=labels)
+            observed_data = observed_data.assign_coords(LevelCode=self.__inferences['constant_data']['levelcode'])
 
         # The county indices & labels
         if 'County' in list(self.__inferences['posterior'].coords.keys()):
