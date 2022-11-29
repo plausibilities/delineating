@@ -30,8 +30,13 @@ class Mapping:
         :return:
         """
 
-        posterior = self.__inferences['posterior'].assign_coords(LevelCode=list(self.__coords['Level'].values()))
-        posterior = posterior.assign_coords(CountyIndex=list(self.__coords['County'].values()))
+        posterior = self.__inferences['posterior']
+
+        if 'Level' in  list(self.__inferences['posterior'].coords.keys()):
+            posterior = posterior.assign_coords(LevelCode=list(self.__coords['Level'].values()))
+
+        if 'County' in  list(self.__inferences['posterior'].coords.keys()):
+            posterior = posterior.assign_coords(CountyIndex=list(self.__coords['County'].values()))
 
         return posterior
 
