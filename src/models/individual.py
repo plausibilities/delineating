@@ -36,7 +36,7 @@ class Individual:
             #   self.__logger.info(levelcode.get_value().shape)
             levelcode = pm.Data(name='levelcode', value=data['floor'].values, dims='N', mutable=False)
 
-            ones = pm.Data(name='ones', value=np.ones(shape=(data.shape[0], 1)), dims='N', mutable=False)
+            ones = pm.Data(name='ones', value=np.ones(shape=data.shape[0]), dims='N', mutable=False)
 
             # Common intercept
             alpha = pm.Normal('alpha', mu=0.0, sigma=10.0)
