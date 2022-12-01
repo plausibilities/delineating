@@ -33,7 +33,7 @@ class Complete:
 
             # The values of the <floor> field
             #   self.__logger.info(levelcode.get_value().shape), self.__logger.info(levelcode.type())
-            levelcode = pm.Data(name='levelcode', value=data['floor'].values, dims='N', mutable=True)
+            levelcode = pm.Data(name='levelcode', value=data['floor'].values, dims='N', mutable=False)
 
             # The <measures> object has two elements because the object <Level> has two elements, therefore two random
             # values are taken from a normal distribution
