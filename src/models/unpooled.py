@@ -39,11 +39,11 @@ class Unpooled:
 
             # The values of the <floor> field
             #   self.__logger.info(levelcode.get_value().shape)
-            levelcode = pm.Data(name='levelcode', value=data['floor'].values, dims='N', mutable=True)
+            levelcode = pm.Data(name='levelcode', value=data['floor'].values, dims='N', mutable=False)
 
             # The values of the <countyindex> field
             #   self.__logger.info(countyindex.get_value().shape), self.__logger.info(countyindex.type())
-            countyindex = pm.Data(name='countyindex', value=data['countyindex'].values, dims='N', mutable=True)
+            countyindex = pm.Data(name='countyindex', value=data['countyindex'].values, dims='N', mutable=False)
 
             # The <measures> object has 85 x 2 elements because there are 85 distinct counties w.r.t. MN, and 2 distinct
             # dwelling/floor levels.  Hence, 85 x 2 random values are taken from a normal distribution
