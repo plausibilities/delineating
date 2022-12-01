@@ -30,6 +30,16 @@ len(x.get('Level'))
 logger.info(aesara.tensor.shape(...).eval())
 ```
 
+````python
+import pymc
+import numpy as np
+
+ones = pymc.Data(name=str(''), value=np.ones(shape=...), dims='N', mutable=False)
+alpha = pymc.Normal(str('alpha'), mu=0.0, sigma=10.0)
+
+mu = (alpha * ones) + ...
+````
+
 
 
 <br>
