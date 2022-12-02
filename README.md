@@ -32,6 +32,7 @@ x = {'Level': dict(zip(levels, range(len(levels))))}
 len(x.get('Level'))
 ```
 
+<br>
 
 Aesara:
 
@@ -39,6 +40,7 @@ Aesara:
 logger.info(aesara.tensor.shape(...).eval())
 ```
 
+<br>
 
 PyMC Structures:
 
