@@ -3,12 +3,14 @@
 
 ### Notes
 
-*Notebook: radon.ipynb*
+Notebook: radon.ipynb
 
 > ``develop branch`` <br> [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/plausibilities/delineating/blob/develop/notebooks/radon.ipynb)
 
 > ``master branch`` <br> [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/plausibilities/delineating/blob/master/notebooks/radon.ipynb)
 
+
+<br>
 
 *Metrics*
 
