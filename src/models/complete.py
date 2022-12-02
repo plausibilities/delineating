@@ -38,8 +38,8 @@ class Complete:
             # The <measures> object has two elements because the object <Level> has two elements, therefore two random
             # values are taken from a normal distribution
             #   measures: aesara.tensor.var.TensorVariable
+            #   self.__logger.info(f'The # of level group elements: {measures.eval().shape}')
             measures = pm.Normal(name='measures', mu=0.0, sigma=10.0, dims='Level')
-            self.__logger.info(f'The # of level group elements: {measures.eval().shape}')
 
             # shape(mu) === shape(levelcode): <levelcode> is a N x 1 boolean object
             #   measures.eval()[levelcode.eval()]
