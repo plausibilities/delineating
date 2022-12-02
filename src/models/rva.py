@@ -60,3 +60,18 @@ class RVA:
             self.__logger.info(likelihood)
 
             return model
+
+    def exc(self, data: pd.DataFrame) -> pm.Model:
+        """
+
+        :param data: The data set being modelled.
+        :return:
+        """
+
+        # A Bayesian model: a varying intercept varying gradient model with non-centred parameters
+        model = self.__model(data=data)
+
+        # Is this the correct seeding method/approach?
+        model.initial_point(seed=self.__seed)
+
+        return model
