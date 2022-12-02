@@ -33,7 +33,7 @@ class Individual:
 
             # The values of the <floor> field
             #   self.__logger.info(levelcode.get_value().shape)
-            levelcode = pm.Data(name='levelcode', value=data['floor'].values, dims='N', mutable=False)
+            levelcode = pm.MutableData(name='levelcode', value=data['floor'].values, dims='N')
 
             # Common intercept
             alpha = pm.Normal('alpha', mu=0.0, sigma=10.0)
