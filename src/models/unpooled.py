@@ -48,10 +48,10 @@ class Unpooled:
             # The <measures> object has 85 x 2 elements because there are 85 distinct counties w.r.t. MN, and 2 distinct
             # dwelling/floor levels.  Hence, 85 x 2 random values are taken from a normal distribution
             #   measures: aesara.tensor.var.TensorVariable
+            #   self.__logger.info(f'The county & level groups: {measures.eval().shape}')
             measures = pm.Normal(name='measures', mu=0.0, sigma=10.0, dims=('County', 'Level'))
-            self.__logger.info(f'The county & level groups: {measures.eval().shape}')
 
-            # systematic component mu[i] -> intercept[i] + beta[1]*countyindex[i] + beta[2]*levelcode[i]
+            # Systematic component mu[i] -> intercept[i] + beta[1]*countyindex[i] + beta[2]*levelcode[i]
             #   shape(mu) === shape(levelcode) | shape(countyindex), i.e.
             #   mu is a N x 1 boolean object
             mu = measures[countyindex, levelcode]
