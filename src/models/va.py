@@ -51,7 +51,8 @@ class VA:
             sigma = pm.Exponential('sigma', 1.0)
 
             # Likelihood
-            likehood = pm.Normal('likelihood', mu=mu, sigma=sigma, observed=data['ln_radon'].values, dims='N')
+            likelihood = pm.Normal('likelihood', mu=mu, sigma=sigma, observed=data['ln_radon'].values, dims='N')
+            self.__logger.info(likelihood)
 
             return model
 
