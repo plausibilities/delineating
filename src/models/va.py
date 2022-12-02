@@ -63,7 +63,7 @@ class VA:
         :return:
         """
 
-        # A Bayesian model: a varying intercept model
+        # A Bayesian model: a varying intercept varying gradient model
         model = self.__model(data=data)
 
         # Is this the correct seeding method/approach?
