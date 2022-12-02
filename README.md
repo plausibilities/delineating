@@ -62,6 +62,9 @@ mu = (alpha * ones) + ...
 * [pandas API](https://pandas.pydata.org/docs/reference/index.html)
 * [NumPy API](https://numpy.org/doc/stable/reference/index.html)
 * [``xarray`` API](https://docs.xarray.dev/en/stable/api.html)
+* JupyterLab
+  * [Documentation](https://jupyterlab.readthedocs.io/en/stable/)
+  * [API](https://jupyterlab.readthedocs.io/en/stable/api/index.html)
 
 <br>
 <br>
