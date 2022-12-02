@@ -12,7 +12,7 @@ Notebook: radon.ipynb
 
 <br>
 
-*Metrics*
+Metrics
 
 * High Density Interval (A Credible Interval)
 * [Monte Carlo Standard Error](https://search.r-project.org/CRAN/refmans/LaplacesDemon/html/MCSE.html)
@@ -24,15 +24,23 @@ Notebook: radon.ipynb
 
 ### Snippets
 
+Dictionaries:
+
 ```python
 levels = ['Basement', 'Ground']
 x = {'Level': dict(zip(levels, range(len(levels))))}
 len(x.get('Level'))
 ```
 
+
+Aesara:
+
 ```python 
 logger.info(aesara.tensor.shape(...).eval())
 ```
+
+
+PyMC Structures:
 
 ````python
 import pymc
