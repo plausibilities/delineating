@@ -45,12 +45,17 @@ class RVA:
             intercepts = pm.Deterministic('intercepts', intercept_mu + (intercept_parameters * intercept_sigma), dims='County')
 
             # Random gradients
+            # Centred:
+            #       pm.Normal('gradients', mu=gradient_mu, sigma=gradient_sigma, dims='County')
+            # Non-centred:
+            #       pm.Deterministic('gradients', gradient_mu + (gradient_parameters * gradient_sigma), dims='County')
             gradient_mu = pm.Normal('gradient.mu', mu=0.0, sigma=10.0)
             gradient_sigma = pm.Exponential('gradient.sigma', 1.0)
-            gradients = pm.Normal('gradients', mu=gradient_mu, sigma=gradient_sigma, dims='County')
+            gradient_parameters = pm.Normal('gradient.parameters', mu=0, sigma=1, dims='County')
+            gradients = pm.Deterministic('gradients', gradient_mu + (gradient_parameters * gradient_sigma), dims='County')
 
             # Expected value
-            mu = intercepts[countyindex] + gradients[countyindex] * levelcode
+            mu = intercepts[countyindex] + (gradients[countyindex] * levelcode)
 
             # Model error
             sigma = pm.Exponential('sigma', 1.0)
