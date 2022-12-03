@@ -22,43 +22,6 @@ Metrics
 <br>
 <br>
 
-### Snippets
-
-Dictionaries:
-
-```python
-levels = ['Basement', 'Ground']
-x = {'Level': dict(zip(levels, range(len(levels))))}
-len(x.get('Level'))
-```
-
-<br>
-
-Aesara:
-
-```python 
-logger.info(aesara.tensor.shape(...).eval())
-```
-
-<br>
-
-PyMC Structures:
-
-````python
-import pymc
-import numpy as np
-
-ones = pymc.Data(name=str(''), value=np.ones(shape=...), dims='N', mutable=False)
-alpha = pymc.Normal(str('alpha'), mu=0.0, sigma=10.0)
-
-mu = (alpha * ones) + ...
-````
-
-
-
-<br>
-<br>
-
 ### References
 
 * [Engineering Statistics Handbook](https://www.itl.nist.gov/div898/handbook/)
