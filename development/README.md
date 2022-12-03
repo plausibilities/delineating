@@ -22,6 +22,19 @@ Whilst
 generates the dotfile that ``pylint`` - the static code analyser - uses for code analysis.
 
 <br>
+
+Libraries
+
+> ``arviz.__version__``
+> 
+> ``pymc.__version__``
+> 
+> ``numpy.__version__``
+
+
+
+
+<br>
 <br>
 
 <br>
