@@ -33,11 +33,11 @@ class VI:
 
             # The values of the <floor> field
             #   self.__logger.info(levelcode.get_value().shape)
-            levelcode = pm.Data(name='levelcode', value=data['floor'].values, dims='N', mutable=True)
+            levelcode = pm.MutableData(name='levelcode', value=data['floor'].values, dims='N')
 
             # The values of the <countyindex> field
             #   self.__logger.info(countyindex.get_value().shape), self.__logger.info(countyindex.type())
-            countyindex = pm.Data(name='countyindex', value=data['countyindex'].values, dims='N', mutable=True)
+            countyindex = pm.MutableData(name='countyindex', value=data['countyindex'].values, dims='N')
 
             # Random intercepts
             mu_ = pm.Normal('intercept.mu', mu=0.0, sigma=10)

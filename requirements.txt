@@ -1,0 +1,16 @@
+pymc==4.3.0
+aesara==2.8.7
+Theano==1.0.5
+xarray==2022.11.0
+numpy==1.22.3
+pandas==1.4.2
+scipy==1.9.3
+matplotlib==3.6.2
+seaborn==0.11.2
+graphviz==2.38
+pytest==7.1.2
+coverage==6.3.2
+pytest-cov==3.0.0
+pylint==2.12.2
+flake8==4.0.1
+jupyterlab==3.3.2

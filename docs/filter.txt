@@ -1,0 +1,16 @@
+pymc
+aesara
+theano
+xarray
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+pytest
+coverage
+pytest-cov
+pylint
+flake8
+jupyterlab
+

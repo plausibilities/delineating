@@ -39,19 +39,19 @@ class Unpooled:
 
             # The values of the <floor> field
             #   self.__logger.info(levelcode.get_value().shape)
-            levelcode = pm.Data(name='levelcode', value=data['floor'].values, dims='N', mutable=True)
+            levelcode = pm.MutableData(name='levelcode', value=data['floor'].values, dims='N')
 
             # The values of the <countyindex> field
             #   self.__logger.info(countyindex.get_value().shape), self.__logger.info(countyindex.type())
-            countyindex = pm.Data(name='countyindex', value=data['countyindex'].values, dims='N', mutable=True)
+            countyindex = pm.MutableData(name='countyindex', value=data['countyindex'].values, dims='N')
 
             # The <measures> object has 85 x 2 elements because there are 85 distinct counties w.r.t. MN, and 2 distinct
             # dwelling/floor levels.  Hence, 85 x 2 random values are taken from a normal distribution
             #   measures: aesara.tensor.var.TensorVariable
+            #   self.__logger.info(f'The county & level groups: {measures.eval().shape}')
             measures = pm.Normal(name='measures', mu=0.0, sigma=10.0, dims=('County', 'Level'))
-            self.__logger.info(f'The county & level groups: {measures.eval().shape}')
 
-            # systematic component mu[i] -> intercept[i] + beta[1]*countyindex[i] + beta[2]*levelcode[i]
+            # Systematic component mu[i] -> intercept[i] + beta[1]*countyindex[i] + beta[2]*levelcode[i]
             #   shape(mu) === shape(levelcode) | shape(countyindex), i.e.
             #   mu is a N x 1 boolean object
             mu = measures[countyindex, levelcode]
