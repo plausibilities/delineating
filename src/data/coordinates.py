@@ -37,6 +37,6 @@ class Coordinates:
 
         for key in cholesky.keys():
             if key not in coordinates.keys():
-                coordinates.update({key, cholesky[key]})
+                coordinates.update({key: cholesky[key]})
 
         return coordinates
