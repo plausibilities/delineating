@@ -45,16 +45,19 @@ class MRVA:
             levelcode = pm.MutableData(name='levelcode', value=data['floor'].values, dims='N')
             countyindex = pm.MutableData(name='countyindex', value=data['countyindex'].values, dims='N')
 
-            # deviations
+            # deviations: : intercept & gradient
             deviations_mvn = pm.Exponential.dist(0.5, shape=(2,))
+            # noinspection PyTypeChecker
             cholesky, correlations, deviations = pm.LKJCholeskyCov('cholesky', n=2, eta=2.0, sd_dist=deviations_mvn)
 
-            # averages
+            # averages: intercept & gradient
             averages_mvn = pm.Normal('averages_mvn', mu=0.0, sigma=5.0, shape=2)
 
             # population varying effects
-            structure = pm.Normal('var', 0.0, 1.0, dims=('ArgCholeskyDeviations', 'County'))
-            effects = pm.Deterministic('effects', var=at.dot(cholesky, structure), dims=('County','ArgCholeskyDeviations'))
+            effects_parameters = pm.Normal('effects.parameters', 0.0, 1.0, dims=('ArgCholeskyDeviations', 'County'))
+            effects = pm.Deterministic('effects', 
+                                       var=at.dot(cholesky, effects_parameters), 
+                                       dims=('County','ArgCholeskyDeviations'))
 
             # expected value
             mu = (averages_mvn[0] + effects[countyindex, 0] +
