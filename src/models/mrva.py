@@ -57,7 +57,7 @@ class MRVA:
             # population varying effects
             effects_parameters = pm.Normal('effects.parameters', 0.0, 1.0, dims=('ArgCholeskyDeviations', 'County'))
             effects = pm.Deterministic('effects', 
-                                       var=at.dot(cholesky, effects_parameters), 
+                                       var=at.dot(cholesky, effects_parameters).T,
                                        dims=('County','ArgCholeskyDeviations'))
 
             # expected value
