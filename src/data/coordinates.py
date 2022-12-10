@@ -25,8 +25,18 @@ class Coordinates:
 
         return dict(zip(counties, indices))
 
+    def __cholesky(self) -> dict:
+
+        return {'ArgCholeskyDeviations': ['intercept', 'gradient'],
+                'ArgCholeskyCorrelations': ['intercept', 'gradient']}
+
     def exc(self) -> dict:
 
         coordinates = {'Level': self.__levels(), 'County': self.__counties()}
+        cholesky = self.__cholesky()
+
+        for key in cholesky.keys():
+            if key not in coordinates.keys():
+                coordinates.update({key, cholesky[key]})
 
         return coordinates
