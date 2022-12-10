@@ -42,6 +42,7 @@ class MRVA:
 
         with pm.Model(coords=self.__coords) as model:
 
+            # the level codes <floor>, and the county indices <countyindex>, of each observation
             levelcode = pm.MutableData(name='levelcode', value=data['floor'].values, dims='N')
             countyindex = pm.MutableData(name='countyindex', value=data['countyindex'].values, dims='N')
 
