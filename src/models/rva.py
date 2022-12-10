@@ -1,3 +1,7 @@
+"""
+Module: rva
+        re-parameterised varying all (varying intercept, varying gradient)
+"""
 import logging
 
 import pandas as pd
@@ -5,6 +9,10 @@ import pymc as pm
 
 
 class RVA:
+    """
+    Class: RVA
+           Re-parameterised Varying All (varying intercept, varying gradient)
+    """
 
     def __init__(self, coords: dict, seed: int):
         """
