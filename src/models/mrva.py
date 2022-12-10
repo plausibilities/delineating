@@ -1,3 +1,8 @@
+"""
+Module: mrva
+        re-parameterised varying all (varying intercept, varying gradient) with
+        multivariate intercepts/gradients
+"""
 import logging
 
 import aesara.tensor as at
@@ -6,6 +11,11 @@ import pymc as pm
 
 
 class MRVA:
+    """
+    Class: MRVA
+           Re-parameterised Varying All (varying intercept, varying gradient) with
+           multivariate intercepts/gradients
+    """
 
     def __init__(self, coords: dict, seed: int):
         """
@@ -67,7 +77,7 @@ class MRVA:
         """
 
         # A Bayesian model: a varying intercept varying gradient model wherein we have
-        # a multivariate Gaussian distribution of the intercepts & gradients; and, with
+        # a multivariate Gaussian distribution of the intercepts/gradients; and, with
         # non-centred parameters.
         model = self.__model(data=data)
 
