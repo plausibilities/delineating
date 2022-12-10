@@ -46,8 +46,8 @@ class MRVA:
             countyindex = pm.MutableData(name='countyindex', value=data['countyindex'].values, dims='N')
 
             # deviations
-            deviations_mvn = pm.Exponential('deviations_mvn', 0.5, shape=(2,))
-            cholesky, correlations,deviations = pm.LKJCholeskyCov('cholesky', n=2, eta=2.0, sd_dist=deviations_mvn)
+            deviations_mvn = pm.Exponential.dist(0.5, shape=(2,))
+            cholesky, correlations, deviations = pm.LKJCholeskyCov('cholesky', n=2, eta=2.0, sd_dist=deviations_mvn)
 
             # averages
             averages_mvn = pm.Normal('averages_mvn', mu=0.0, sigma=5.0, shape=2)
