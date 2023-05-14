@@ -9,7 +9,7 @@ Development Environment Notes
 The requirements file generation is via
 
 ```shell
-  conda activate augmentation
+  conda activate uncertainty
   pip freeze -r docs/filter.txt > requirements.txt
 ```
 
